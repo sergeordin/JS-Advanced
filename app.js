@@ -1,51 +1,39 @@
 'use strict';
-'use strict';
 
 /*
-	Реализовать на функциях и прототипах корзину товаров с методами
-	- Добавить товар
-	- Увеличить число товаров
-	- Уменьшить число товаров (удалить если их 0)
+	Создать базовый класс Персонажа с параметрами: раса, имя, язык и метод - говорить
+	Создать класс орка, который наследуется от Персонажа, у которого есть оружие и метод - удар
+	Создать класс эльфа, который наследуется от Персонажа, у которого есть тип заклинаний и метод - создать заклинание
+
+	Использовать прототипное наследование. Все методы просто выводят что то в консоль
 */
 
-const product = { id: 1, name: 'Bread', count: 1 };
-
-const Cart = function () {
-    this.products = [];
+const Character = function (race, name, lang) {
+    this.race = race;
+    this.name = name;
+    this.lang = lang;
 };
 
-Cart.prototype.addProduct = function (product) {
-    if (this.products.find((product) => product.id === product.id)) {
-        return;
-    }
-    this.products.push(product);
+Character.prototype.speak = function () {
+    console.log(`I am ${this.name}`);
 };
 
-Cart.prototype.increaseAmount = function (id) {
-    this.products = this.products.map((product) => {
-        if (product.id === id) {
-            product.count++;
-            return product;
-        }
-        return product;
-    });
+const ork = new Character('ork', 'Zumba', 'or-OR');
+ork.__proto__.weapon = 'topor';
+ork.__proto__.hit = function () {
+    console.log(`Fill my ${this.weapon}! HIT!`);
 };
 
-Cart.prototype.decreaseAmount = function (id) {
-    this.products = this.products
-        .map((product) => {
-            if (product.id === id) {
-                product.count--;
-                return product;
-            }
-            return product;
-        })
-        .filter((product) => product.count > 0);
+const elf = new Character('elf', 'Lissy', 'el-EL');
+elf.__proto__.spellType = 'Zagovor';
+elf.__proto__.spellCast = function () {
+    console.log(`Fill my ${this.spellType}! CAST!`);
 };
 
-const cart = new Cart();
-cart.addProduct(product);
-cart.increaseAmount(1);
-cart.decreaseAmount(1);
+console.log(ork);
+ork.speak();
+ork.hit();
 
-console.log(cart);
+console.log(elf);
+elf.speak();
+elf.spellCast();
