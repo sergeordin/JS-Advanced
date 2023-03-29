@@ -9,25 +9,18 @@ const clock = {
     seconds: document.getElementById('seconds'),
 };
 
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getUTCFullYear();
 const nextYear = new Date(currentYear + 1, 0, 1);
 
 function updateClock() {
     const currentTime = new Date();
     let delta = nextYear - currentTime;
 
-    const monthLeft = Math.floor(delta / 1000 / 60 / 60 / 24 / 30);
-    const daysLeft = Math.floor(delta / 1000 / 60 / 60 / 24) % 30;
-    const hoursLeft = Math.floor(delta / 1000 / 60 / 60) % 24;
-    const minutesLeft = Math.floor(delta / 1000 / 60) % 60;
-    const secondsLeft = Math.floor(delta / 1000) % 60;
-
-    console.log(
-        new Intl.DateTimeFormat('ru-RU', {
-            minute: 'numeric',
-            second: 'numeric',
-        }).format(secondsLeft)
-    );
+    const monthLeft = new Date(delta).getUTCMonth();
+    const daysLeft = new Date(delta).getUTCDate();
+    const hoursLeft = new Date(delta).getUTCHours();
+    const minutesLeft = new Date(delta).getUTCMinutes();
+    const secondsLeft = new Date(delta).getUTCSeconds();
 
     clock.year.innerText = currentYear + 1;
 
