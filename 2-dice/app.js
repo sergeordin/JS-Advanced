@@ -13,16 +13,17 @@ function diceGame(dice = 'd6') {
     if (isNaN(diceMax)) {
         return null;
     }
-    let random = Math.floor(Math.random() * (diceMax - 1) + 2);
+    let random = Math.ceil(Math.random() * diceMax);
+    console.log(diceMax);
     return random;
 }
 
 console.log(diceGame('d4'));
-console.log(diceGame('d6'));
-console.log(diceGame('d8'));
-console.log(diceGame('d10'));
-console.log(diceGame('d12'));
-console.log(diceGame('d16'));
-console.log(diceGame('d20'));
-console.log(diceGame('d190'));
-console.log(diceGame('dsdf')); // null
+// console.log(diceGame('d6'));
+// console.log(diceGame('d8'));
+// console.log(diceGame('d10'));
+// console.log(diceGame('d12'));
+// console.log(diceGame('d16'));
+// console.log(diceGame('d20'));
+// console.log(diceGame('d190'));
+// console.log(diceGame('dsdf')); // null
