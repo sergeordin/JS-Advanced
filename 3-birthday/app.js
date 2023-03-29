@@ -13,7 +13,7 @@ function checkAge(str) {
     const today = new Date();
     const birthday = new Date(str);
     let age = today.getFullYear() - birthday.getFullYear();
-    if (today.getMonth() > birthday.getMonth()) {
+    if (today.getMonth() >= birthday.getMonth()) {
         if (today.getDate() > birthday.getDate()) {
             age = age - 1;
         }
