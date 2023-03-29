@@ -10,17 +10,13 @@ const dateStr1 = '1995-04-03';
 const dateStr2 = '2015-04-03';
 
 function checkAge(str) {
-    const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const date = new Date(str);
-    const birthday = new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate()
-    );
+    const today = new Date();
+    const birthday = new Date(str);
     let age = today.getFullYear() - birthday.getFullYear();
-    if (today > birthday) {
-        age = age - 1;
+    if (today.getMonth() > birthday.getMonth()) {
+        if (today.getDate() > birthday.getDate()) {
+            age = age - 1;
+        }
     }
     return age > 14;
 }
