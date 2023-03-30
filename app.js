@@ -1,48 +1,39 @@
 'use strict';
 
 /*
-    Реализовать класс пользователя со свойствами
-    - Логин
-    - Пароль
-    Причем пароль при установке должен переворачиваться и в таком виде храниться
-    Пароль и логин после создания изменить нельзя
-    Также у класса добавить методы
-    - Смены пароля (передаем старый и новый пароли)
-    - Сверки пароля
+    Cоздать класс car у которого есть марка, модель и пробег (все свойства приватные, задаются в конструкторе)
+	- Сделать для него возможность менять пробег через get/set
+	- Добавить метод info, который выводит в консоль марку, модель и пробег
 */
 
-class User {
-    #login;
-    #_password;
+class Car {
+    #mark;
+    #model;
+    #_km;
 
-    constructor(login, password) {
-        this.#login = login;
-        this.#password = password;
-    }
-    set #password(pass) {
-        this.#_password = pass.split('').reverse().join('');
-    }
-
-    get #password() {
-        return (this.#_password = pass.split('').reverse().join(''));
+    constructor(mark, model, km) {
+        this.#mark = mark;
+        this.#model = model;
+        this.#_km = km;
     }
 
-    get login() {
-        return this.login;
+    get km() {
+        return this.#_km;
     }
 
-    checkPassword(pass) {
-        return this.#password === pass;
+    set km(newKm) {
+        return (this.#_km = newKm);
     }
 
-    changePassword(oldPass, newPass) {
-        if (!this.checkPassword(oldPass)) {
-            return false;
-        }
-        this.#password = newPass;
-        return true;
+    info() {
+        console.log(
+            `Your car is ${this.#mark} ${this.#model}, range: ${this.km}`
+        );
     }
 }
 
-const user = new User('test', 'qwerty');
-console.log(user);
+const car = new Car('VW', 'POLO', 250000);
+console.log(car);
+car.info();
+car.km = 100000;
+console.log(car);
