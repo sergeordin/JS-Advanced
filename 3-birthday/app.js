@@ -7,19 +7,18 @@
 */
 
 const dateStr1 = '1995-04-03';
-const dateStr2 = '2015-04-03';
+const dateStr2 = '2008-04-03';
 
 function checkAge(str) {
     const today = new Date();
     const birthday = new Date(str);
     let age = today.getFullYear() - birthday.getFullYear();
-    if (today.getMonth() >= birthday.getMonth()) {
-        if (today.getDate() > birthday.getDate()) {
-            age = age - 1;
-        }
+    if (
+        today.getMonth() < birthday.getMonth() ||
+        (today.getMonth() == birthday.getMonth() &&
+            today.getDate() < birthday.getDate())
+    ) {
+        age--;
     }
-    return age > 14;
+    return age >= 14;
 }
-
-console.log(checkAge(dateStr1)); //true
-console.log(checkAge(dateStr2)); // false
