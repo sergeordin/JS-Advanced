@@ -10,20 +10,9 @@
 
 function diceGame(dice = 'd6') {
     const diceMax = Number(dice.slice(1));
-    if (isNaN(diceMax)) {
+    const min = 1;
+    if (isNaN(diceMax) && diceMax <= min) {
         return null;
     }
-    let random = Math.ceil(Math.random() * diceMax);
-    console.log(diceMax);
-    return random;
+    return Math.floor(Math.random() * diceMax + min);
 }
-
-console.log(diceGame('d4'));
-// console.log(diceGame('d6'));
-// console.log(diceGame('d8'));
-// console.log(diceGame('d10'));
-// console.log(diceGame('d12'));
-// console.log(diceGame('d16'));
-// console.log(diceGame('d20'));
-// console.log(diceGame('d190'));
-// console.log(diceGame('dsdf')); // null
