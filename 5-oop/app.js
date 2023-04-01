@@ -8,6 +8,7 @@
 	Использовать прототипное наследование. Все методы просто выводят что то в консоль
 */
 
+//Char
 const Character = function (race, name, lang) {
     this.race = race;
     this.name = name;
@@ -18,22 +19,32 @@ Character.prototype.speak = function () {
     console.log(`I am ${this.name}`);
 };
 
-const ork = new Character('ork', 'Zumba', 'or-OR');
-ork.__proto__.weapon = 'topor';
-ork.__proto__.hit = function () {
+//Ork
+const Ork = function (race, name, lang, weapon) {
+    Character.call(this, race, name, lang);
+    this.weapon = weapon;
+};
+
+Ork.prototype.hit = function () {
     console.log(`Fill my ${this.weapon}! HIT!`);
 };
 
-const elf = new Character('elf', 'Lissy', 'el-EL');
-elf.__proto__.spellType = 'Zagovor';
-elf.__proto__.spellCast = function () {
+const ork = new Ork('ork', 'Zumba', 'or-OR', 'topor');
+
+ork.__proto__.speak;
+ork.hit();
+
+//Elf
+const Elf = function (race, name, lang, spellType) {
+    Character.call(this, race, name, lang);
+    this.spellType = spellType;
+};
+
+Elf.prototype.spellCast = function () {
     console.log(`Fill my ${this.spellType}! CAST!`);
 };
 
-console.log(ork);
-ork.speak();
-ork.hit();
+const elf = new Elf('elf', 'Lissy', 'el-EL', 'zagovor');
 
-console.log(elf);
-elf.speak();
+elf.__proto__.speak;
 elf.spellCast();
