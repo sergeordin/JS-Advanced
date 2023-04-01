@@ -9,25 +9,27 @@
 class Car {
     #mark;
     #model;
-    #_km;
+    #km;
 
     constructor(mark, model, km) {
         this.#mark = mark;
         this.#model = model;
-        this.#_km = km;
+        this.#km = km;
     }
 
     get km() {
-        return this.#_km;
+        return this.#km;
     }
 
     set km(newKm) {
-        return (this.#_km = newKm);
+        if (this.km > newKm) {
+            return false;
+        }
+        return (this.#km = newKm);
     }
-
     info() {
         console.log(
-            `Your car is ${this.#mark} ${this.#model}, range: ${this.km}`
+            `Your car is ${this.#mark} ${this.#model}, range: ${this.#km}`
         );
     }
 }
@@ -36,4 +38,6 @@ const car = new Car('VW', 'POLO', 250000);
 console.log(car);
 car.info();
 car.km = 100000;
+console.log(car);
+car.km = 300000;
 console.log(car);
