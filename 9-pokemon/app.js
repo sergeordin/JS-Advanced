@@ -7,7 +7,6 @@ request.send();
 request.addEventListener('load', function () {
     const data = JSON.parse(this.responseText);
     const url = data.abilities[0].ability.url;
-    console.log(url);
 
     const request = new XMLHttpRequest();
     request.open('GET', url);
