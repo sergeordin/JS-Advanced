@@ -22,10 +22,7 @@ class Car {
     }
 
     set km(newKm) {
-        if (this.km > newKm) {
-            return false;
-        }
-        return (this.#km = newKm);
+        this.#km > newKm ? this.#km : (this.#km = newKm);
     }
     info() {
         console.log(
