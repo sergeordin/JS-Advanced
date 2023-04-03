@@ -25,13 +25,15 @@ const Ork = function (race, name, lang, weapon) {
     this.weapon = weapon;
 };
 
+Ork.prototype = Object.create(Character.prototype);
+
 Ork.prototype.hit = function () {
     console.log(`Fill my ${this.weapon}! HIT!`);
 };
 
 const ork = new Ork('ork', 'Zumba', 'or-OR', 'topor');
 
-ork.__proto__.speak;
+ork.speak();
 ork.hit();
 
 //Elf
@@ -40,11 +42,13 @@ const Elf = function (race, name, lang, spellType) {
     this.spellType = spellType;
 };
 
+Elf.prototype = Object.create(Character.prototype);
+
 Elf.prototype.spellCast = function () {
     console.log(`Fill my ${this.spellType}! CAST!`);
 };
 
 const elf = new Elf('elf', 'Lissy', 'el-EL', 'zagovor');
 
-elf.__proto__.speak;
+elf.speak();
 elf.spellCast();
