@@ -26,6 +26,7 @@ const Ork = function (race, name, lang, weapon) {
 };
 
 Ork.prototype = Object.create(Character.prototype);
+Ork.prototype.constructor = Ork;
 
 Ork.prototype.hit = function () {
     console.log(`Fill my ${this.weapon}! HIT!`);
@@ -33,6 +34,7 @@ Ork.prototype.hit = function () {
 
 const ork = new Ork('ork', 'Zumba', 'or-OR', 'topor');
 
+console.log(ork);
 ork.speak();
 ork.hit();
 
@@ -43,6 +45,7 @@ const Elf = function (race, name, lang, spellType) {
 };
 
 Elf.prototype = Object.create(Character.prototype);
+Elf.prototype.constructor = Elf;
 
 Elf.prototype.spellCast = function () {
     console.log(`Fill my ${this.spellType}! CAST!`);
