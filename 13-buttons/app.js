@@ -3,13 +3,13 @@ const buttons = parent.querySelectorAll('.btn');
 const counter = document.querySelector('.counter');
 
 parent.addEventListener('click', (event) => {
-    let target = event.target;
-
-    if (target.classList.contains('btn')) {
+    if (event.target.classList.contains('btn')) {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove('btn-red');
+            buttons[i].innerHTML = 'Нажми меня';
         }
-        target.classList.add('btn-red');
+        event.target.classList.add('btn-red');
+        event.target.innerHTML = 'Нажата!';
         counter.innerHTML = Number(counter.innerHTML) + 1;
     }
 });
