@@ -10,7 +10,7 @@ const array = [promise1, promise2, promise3];
 
 function race(arr) {
     if (!arr || arr.length === 0) {
-        return console.log(null);
+        return Promise.resolve([]);
     }
     return Promise.race(arr).then((data) => console.log(data));
 }
