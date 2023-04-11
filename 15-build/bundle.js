@@ -9,12 +9,12 @@ class Task {
     }
 }
 
-class User extends Task {
+class User {
     constructor(task) {
-        super(task);
-        this.do = function () {
-            this.run();
-        };
+        this.task = task;
+    }
+    do() {
+        this.task.run();
     }
 }
 
