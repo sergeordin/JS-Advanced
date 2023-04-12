@@ -3,9 +3,10 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "start": "live-server",
-        "build": "rollup"
+        "build": "rollup -c --watch"
     },
     "repository": {
         "type": "git",
@@ -18,7 +19,9 @@
     },
     "homepage": "https://github.com/sergeordin/JS-Advanced#readme",
     "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.0.2",
         "eslint": "^8.38.0",
-        "rollup": "^3.20.2"
+        "rollup": "^3.20.2",
+        "rollup-plugin-import-css": "^3.2.1"
     }
 }
