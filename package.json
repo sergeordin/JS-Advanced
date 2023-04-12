@@ -1,0 +1,24 @@
+{
+    "name": "book-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "live-server",
+        "build": "rollup"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sergeordin/JS-Advanced.git"
+    },
+    "author": "Sergey Ordin",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sergeordin/JS-Advanced/issues"
+    },
+    "homepage": "https://github.com/sergeordin/JS-Advanced#readme",
+    "devDependencies": {
+        "eslint": "^8.38.0",
+        "rollup": "^3.20.2"
+    }
+}
