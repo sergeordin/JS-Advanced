@@ -19,5 +19,5 @@ class User {
 }
 
 const task = new Task('Coding');
-const user = new User(task.task);
+const user = new User(task);
 user.do();
