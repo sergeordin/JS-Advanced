@@ -1,3 +1,14 @@
-.test {
-	color: red;
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: var(--black);
+}
+
+:root {
+	--black: #121212;
+	--white: #fafafa;
+}
+
+#root {
+	max-width: 800px;
+	margin: 0 auto;
 }
