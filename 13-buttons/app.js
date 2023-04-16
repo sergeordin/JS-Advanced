@@ -8,8 +8,8 @@ parent.addEventListener('click', (event) => {
         span[i].innerHTML = 'Нажми меня';
     }
     event.target.closest('button').classList.add('btn-red');
-    event.target.closest('span').innerHTML = 'Нажата';
-
-    //event.target.innerHTML = 'Нажата';
+    event.target.closest(
+        'button'
+    ).innerHTML = `<span class="span">Нажата</span>`;
     counter.innerHTML = Number(counter.innerHTML) + 1;
 });
