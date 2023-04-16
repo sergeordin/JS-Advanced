@@ -1,6 +1,5 @@
 const parent = document.querySelector('.buttons');
 const counter = document.querySelector('.counter');
-const span = parent.querySelectorAll('.span');
 const btns = parent.querySelectorAll('.btn');
 
 parent.addEventListener('click', (event) => {
