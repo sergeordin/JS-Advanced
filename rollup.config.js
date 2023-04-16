@@ -5,7 +5,7 @@ export default {
     input: 'src/app.js',
     output: {
         dir: 'dist',
-        format: 'iife',
+        format: 'es',
     },
     plugins: [css(), nodeResolve()],
 };
